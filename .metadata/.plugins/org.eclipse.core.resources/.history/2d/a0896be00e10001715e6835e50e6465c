@@ -1,0 +1,5 @@
+package com.solrSearch.service;
+
+public class SOLRService {
+
+}

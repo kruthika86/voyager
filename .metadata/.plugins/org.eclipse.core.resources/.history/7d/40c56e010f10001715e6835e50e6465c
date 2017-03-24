@@ -1,0 +1,19 @@
+package com.solrSearch.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.solr.core.SolrTemplate;
+
+import com.solrSearch.util.HashMap;
+import com.solrSearch.util.List;
+import com.solrSearch.util.SOLRSearch;
+
+public class SOLRService implements SOLRSearch {
+	
+	@Autowired
+	private SolrTemplate solrTemplate;
+	
+	public getResults(String criteria, HashMap<String, List<String>> displayFields){
+		
+	}
+
+}

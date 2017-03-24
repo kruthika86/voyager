@@ -1,0 +1,12 @@
+package com.solrSearch.util;
+
+import java.util.Comparator;
+
+public class MyJSONComparator implements Comparator<String>{
+
+	@Override
+    public int compare(Track s1, Track s2) {
+        return s1.artist.compareTo(s2.artist);
+    }
+	
+}

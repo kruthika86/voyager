@@ -1,0 +1,53 @@
+package com.solrSearch.service;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.SolrServer;
+import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.common.SolrException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.solr.core.SolrTemplate;
+import org.springframework.data.solr.core.query.Criteria;
+import org.springframework.data.solr.core.query.Query;
+import org.springframework.data.solr.core.query.SimpleQuery;
+
+import com.solrSearch.util.SOLRSearch;
+
+public class SOLRService implements SOLRSearch {
+	
+	@Autowired
+	private SolrTemplate solrTemplate;
+	
+	
+	public void getResults(String searchCriteria, HashMap<String, List<String>> displayFields){
+		
+		Criteria criteriaQuery = new Criteria("*:*");
+		criteriaQuery = criteriaQuery.and(new Criteria(searchCriteria));
+		
+		Query queryStr = new SimpleQuery(criteriaQuery);
+		QueryResponse response = null;
+		try{
+			SolrServer solrServer = solrTemplate.getSolrServer();
+			SolrQuery query = new SolrQuery();
+			query.setQuery(queryStr.toString());
+			response = solrServer.query(query);
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(response != null){
+			
+		}
+	}
+
+	
+
+}

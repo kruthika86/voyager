@@ -1,0 +1,49 @@
+package com.solrSearch.controller;
+
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Comparator;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.solrSearch.service.SOLRService;
+
+@Controller
+@RequestMapping("/voyager")
+public class VoyagerSearchController {
+	
+	private static final boolean Ascending = true;
+	@Autowired
+	SOLRService solrService;
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String getsearchResults(@PathVariable String searchCriteria ,@RequestBody List<String> displayFields){
+		
+		List<String> searchResult = solrService.getResults(searchCriteria, displayFields);
+		List<String> clonedResult = searchResult;
+		
+		sortList(clonedResult, Ascending);
+		return null;
+		
+	}
+
+	private void sortList(List<String> clonedResult, boolean order) {
+		Collections.sort(clonedResult, new Comparator<>(){
+			public int compare(String itme1, String item2){
+				return item1.getDescription().compareTo(item2.getDescription())
+						*(order ? 1: -1);
+			}
+		});
+		
+	}
+
+}

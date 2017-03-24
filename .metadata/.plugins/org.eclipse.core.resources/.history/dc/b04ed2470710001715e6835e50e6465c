@@ -1,0 +1,5 @@
+package com.solrSearch.controller;
+
+public class VoyagerSearchController {
+
+}

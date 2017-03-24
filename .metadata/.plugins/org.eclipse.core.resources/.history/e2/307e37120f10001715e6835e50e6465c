@@ -1,0 +1,6 @@
+package com.solrSearch.util;
+
+public interface SOLRSearch {
+
+	public getResults(String criteria, HashMap<String, List<String>> displayFields);
+}

@@ -1,0 +1,8 @@
+package com.solrSearch.util;
+
+import java.util.List;
+
+public interface SOLRSearch {
+
+	public void getResults(String criteria, List<String> displayFields);
+}

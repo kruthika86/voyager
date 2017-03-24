@@ -1,0 +1,5 @@
+package com.solrSearch.config.solr;
+
+public class ConfigSolr {
+
+}

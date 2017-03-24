@@ -1,0 +1,5 @@
+package com.solrSearch.util;
+
+public class MyJSONComparator {
+
+}

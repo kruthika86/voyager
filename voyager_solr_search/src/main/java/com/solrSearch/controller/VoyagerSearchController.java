@@ -37,7 +37,7 @@ public class VoyagerSearchController {
 	private int pageNo;
 	
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.GET, value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<String> getsearchResults(@PathVariable String searchCriteria ,@RequestBody List<String> displayFields){
 		

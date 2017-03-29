@@ -7,7 +7,7 @@ would be nice.
 Required tools: Java, Spring, Gradle, Solr (if you like something like Scala,
 Groovy, Kotlin etc to increase your productivity, feel free)
 
-Ouestion 1:
+Question 1:
 
 Our front end calls are tightly coupled to Solr. This presents problems
 when the next solr version is released with breaking changes, or we
